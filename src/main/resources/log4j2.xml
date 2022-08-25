@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<Configuration status="DEBUG">-->
+<!--actual level of debugging for log4j2 itself-->
+<Configuration status="warn">
+    <!--    https://mkyong.com/logging/log4j2-xml-example/-->
+    <Appenders>
+        <Console name="LogToConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <File name="LogToFile" fileName="logs/app.log">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+    <Loggers>
+        <!-- avoid duplicated logs with additivity=false -->
+        <!--        used by Logger.getLogger-->
+        <!--        <Logger name="com.github.valrcs" level="debug" additivity="false">-->
+        <!--        <Logger name="com.github.valrcs" level="info" additivity="false">-->
+        <!--        <Logger name="com.github.valrcs" level="warn" additivity="false">-->
+        <!--        <Logger name="com.github.valrcs" level="error" additivity="false">-->
+        <Logger name="com.github.valrcs" level="warn" additivity="false">
+            <AppenderRef ref="LogToFile"/>
+            <AppenderRef ref="LogToConsole"/>
+        </Logger>
+        <!--        //Used By Spark-->
+        <!--        <Root  level="info">-->
+        <!--        <Root  level="debug">-->
+        <Root  level="warn">
+            <!--            You can comment out those AppenderRefs that you do not want to use-->
+            <AppenderRef ref="LogToFile"/>
+            <AppenderRef ref="LogToConsole"/>
+        </Root>
+    </Loggers>
+</Configuration>
