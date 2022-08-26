@@ -1,13 +1,12 @@
-import org.apache.spark.sql.functions.{avg, col, expr, lag, round, to_date}
-import org.apache.spark.sql.expressions.Window
+import org.apache.spark.sql.functions.{avg, col, expr, round, to_date}
 
 object Task extends App {
 
   val spark = Utilities.SparkUtilities.getOrCreateSpark("spark")
 
-  //Load the stock
+  //TASK: load the stock!
 
-  val filePath = "src/main/scala/resources/stock_prices.csv"
+  val filePath = "src/scala/resources/src/stock_prices.csv"
   val dfWithView = Utilities.SparkUtilities.readDataWithView(spark, filePath)
 //  val dfStock = spark.read
 //    .format("csv")
@@ -21,10 +20,10 @@ object Task extends App {
 
   dfWithDate.cache()
 
-  //compute the average daily return of every stock for every date
+  //TASK: Compute the average daily return of every stock for every date!
 
     //calculation of an average daily return goes like this:
-      //daily return = close - open
+    //daily return = close - open
     //summing up all the daily returns and dividing the sum by the number of periods (in this case - days)
 
   val dailyReturn = round(expr("close - open"), 2)
@@ -44,33 +43,14 @@ object Task extends App {
     .orderBy("date")
   dfAvgReturn.show(20, truncate = false)
 
-  //Save the results to the file as Parquet (CSV and SQL formats are optional)
+  //TASK: Save the results to the file as Parquet (CSV and SQL formats are optional)!
 
   dfAvgReturn.write
     .mode("overwrite")
-    .parquet("src/resources/parquet/average_return.parquet")
+    .parquet("src/scala/resources/parquet/average_return.parquet")
 
-
-
-
-  //subtract the opening price from the closing price
-  //multiply the difference by the stock volume to find the total daily return
-  //sum/count for the avg
-
-
-
-
-//  dfStock.createOrReplaceTempView("dfWithPartitions")
-
-
-
-
-
-
-
-
-
-  //Which stock was traded most frequently - as measured by closing price * volume - on average?
+  //TASK: Find which stock was traded most frequently
+  //as measured by closing price * volume - on average
 
 
 }
