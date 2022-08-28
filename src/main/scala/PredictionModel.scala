@@ -1,7 +1,8 @@
 import Utilities.SparkUtilities
 import org.apache.spark.ml.Pipeline
+import org.apache.spark.ml.feature.{StringIndexer, OneHotEncoder}
 import org.apache.spark.ml.evaluation.RegressionEvaluator
-import org.apache.spark.ml.feature.{RFormula, VectorAssembler}
+import org.apache.spark.ml.feature.{ RFormula, VectorAssembler}
 import org.apache.spark.ml.regression.LinearRegression
 import org.apache.spark.ml.tuning.{CrossValidator, ParamGridBuilder}
 import org.apache.spark.sql.expressions.Window
@@ -29,18 +30,34 @@ object PredictionModel extends App {
     .orderBy("date")
 //    .select("date", "ticker", "dailyReturn")
 
+  dfWithReturn.printSchema()
+
 //  val dfForProcessing = dfWithReturn
 ////    .over(Window.partitionBy("ticker").orderBy("date"))
-//    .withColumn("date", col("date").cast("string"))
-//    .withColumn("ticker", col("ticker").cast("string"))
-//    .withColumn("close", col("close").cast("string"))
-//    .withColumn("open", col("close").cast("string"))
-//    .withColumn("dailyReturn", col("dailyReturn").cast("string"))
-//
+//    .withColumn("date", col("date").cast("Double"))
+//    .withColumn("ticker", col("ticker").cast("Double"))
+//    .withColumn("close", col("close").cast("Double"))
+//    .withColumn("open", col("close").cast("Double"))
+//    .withColumn("dailyReturn", col("dailyReturn").cast("Double"))
+
 //dfForProcessing.createOrReplaceTempView("dfForProcessing")
 
+  //takes as input a number of columns of Boolean, Double, or Vector
+  //indexing strings for VectorAssembler
+
+  val dateIndexer = new StringIndexer()
+    .setInputCol("date")
+    .setOutputCol("dateInd")
+//  dateIndexer.fit(dfWithReturn)
+//      .transform(dfWithReturn)
+  val tickerInd = dateIndexer.fit(dfWithReturn).transform(dfWithReturn.select("ticker"))
+  val ohe = new OneHotEncoder()
+    .setInputCol("dateInd")
+//    .setOutputCol("dateEnc")
+  ohe.transform()
+
   val va = new VectorAssembler()
-    .setInputCols(Array("date", "open", "close", "ticker", "dailyReturn"))
+    .setInputCols(Array("dateInd", "open", "close", "dailyReturn"))
     .setOutputCol("features")
 
   val linReg = new LinearRegression()
@@ -63,10 +80,10 @@ object PredictionModel extends App {
     .setEstimator(pipeline)
     .setEvaluator(evaluator)
     .setEstimatorParamMaps(params)
-    .setNumFolds(3) //as advised by the book, may be changed to 2
+    .setNumFolds(2) //as advised by the book, may be changed to 2
 
-  val model = pipeline.fit(dfWithReturn)
-
-
+//  val model = pipeline.fit(dfForProcessing)
+//  val prediction = model.transform(dfForProcessing)
+//prediction.show()
 
 }
