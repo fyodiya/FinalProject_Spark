@@ -1,4 +1,4 @@
-import org.apache.spark.sql.functions.{avg, col, expr, round, to_date}
+import org.apache.spark.sql.functions.{avg, col, desc, expr, round, sum, to_date}
 
 object Task extends App {
 
@@ -18,7 +18,7 @@ object Task extends App {
 
     //calculation of an average daily return goes like this:
     //daily return = close - open
-    //then summing up all the daily returns and dividing the sum by the number of periods (in this case - done by Agg.)
+    //then summing up all the daily returns and dividing the sum by the number of periods (in this case - done by Aggregate function)
 
   val dailyReturn = round(expr("close - open"), 2)
   val dfWithReturn = dfWithDate
@@ -55,7 +55,19 @@ object Task extends App {
 
 
   //TASK: Find which stock was traded most frequently
-  //as measured by closing price * volume - on average
+  //as measured by closing price * volume - on average!
 
+  val stockFreq = col("volume") * col("close")
+  val dfWithStockFreq = dfWithDate.withColumn("stockFrequency", stockFreq)
+  dfWithStockFreq
+    .orderBy(desc("stockFrequency"))
+    .show()
+
+  dfWithStockFreq
+    .groupBy("ticker")
+    .agg(sum("stockFrequency"), avg("stockFrequency").as("avgStockFrequency"))
+    .select("ticker", "avgStockFrequency")
+    .orderBy(desc("avgStockFrequency"))
+    .show()
 
 }
