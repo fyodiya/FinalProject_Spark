@@ -1,6 +1,12 @@
 import Utilities.SparkUtilities
-import org.apache.spark.ml.feature.RFormula
+import org.apache.spark.ml.Pipeline
+import org.apache.spark.ml.evaluation.RegressionEvaluator
+import org.apache.spark.ml.feature.{RFormula, VectorAssembler}
 import org.apache.spark.ml.regression.LinearRegression
+import org.apache.spark.ml.tuning.{CrossValidator, ParamGridBuilder}
+import org.apache.spark.sql.expressions.Window
+import org.apache.spark.sql.expressions.Window.partitionBy
+import org.apache.spark.sql.functions.{col, expr, round, to_date}
 
 object PredictionModel extends App {
 
@@ -17,39 +23,50 @@ object PredictionModel extends App {
     .option("inferSchema", value = true)
     .load(src)
 
-  df.show()
+  val dailyReturn = round(expr("close - open"), 2)
+  val dfWithReturn = df
+    .withColumn("dailyReturn", dailyReturn)
+    .orderBy("date")
+//    .select("date", "ticker", "dailyReturn")
 
-  val rFormula = new RFormula()
-    .setFormula("y ~ .")
-    .setLabelCol("value")
-    .setFeaturesCol("features")
+//  val dfForProcessing = dfWithReturn
+////    .over(Window.partitionBy("ticker").orderBy("date"))
+//    .withColumn("date", col("date").cast("string"))
+//    .withColumn("ticker", col("ticker").cast("string"))
+//    .withColumn("close", col("close").cast("string"))
+//    .withColumn("open", col("close").cast("string"))
+//    .withColumn("dailyReturn", col("dailyReturn").cast("string"))
+//
+//dfForProcessing.createOrReplaceTempView("dfForProcessing")
 
-  val ndf = rFormula
-    .fit(df)
-    .transform(df)
-
-  ndf.show(10)
+  val va = new VectorAssembler()
+    .setInputCols(Array("date", "open", "close", "ticker", "dailyReturn"))
+    .setOutputCol("features")
 
   val linReg = new LinearRegression()
-    .setLabelCol("value")
+    .setFeaturesCol("features")
+    .setLabelCol("close") //since we try to predict the closing price
 
-  val lrModel = linReg.fit(ndf)
+  val pipeline = new Pipeline()
+    .setStages(Array(va, linReg))
 
-//  val summary = lrModel.summary
-//  summary.residuals.show(25)
+  val params = new ParamGridBuilder()
+    .addGrid(linReg.regParam, Array(0, 0.5, 1))
+    .build()
 
-  //You can use other information if you wish from other sources for this predictor, the only thing what you can not do is use future data. smile
-  //
-  //One idea would be to find and extract some information about particular stock and columns with industry data (for example APPL would be music,computers,mobile)
-  //
-  //Do not expect something with high accuracy but main task is getting something going.
-  //
-  //Good extra feature would be for your program to read any .CSV in this particular format and try to do the task. This means your program would accept program line parameters.
-  //
-  //Assumptions
-  //
-  //No dividends adjustments are necessary, using only the closing price to determine returns
-  //If a price is missing on a given date, you can compute returns from the closest available date
-  //Return can be trivially computed as the % difference of two prices
+  val evaluator = new RegressionEvaluator()
+    .setMetricName("rmse")
+    .setPredictionCol("prediction")
+    .setLabelCol("close")
+
+  val cv = new CrossValidator()
+    .setEstimator(pipeline)
+    .setEvaluator(evaluator)
+    .setEstimatorParamMaps(params)
+    .setNumFolds(3) //as advised by the book, may be changed to 2
+
+  val model = pipeline.fit(dfWithReturn)
+
+
 
 }
