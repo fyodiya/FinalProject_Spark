@@ -1,8 +1,8 @@
-import org.apache.spark.sql.functions.{avg, col, desc, expr, round, sum, to_date}
+import org.apache.spark.sql.functions.{avg, col, desc, expr, lit, round, sqrt, stddev, sum, to_date}
 
 object Task extends App {
 
-  val spark = Utilities.SparkUtilities.getOrCreateSpark("spark")
+  val spark = Utilities.SparkUtilities.getOrCreateSpark("Spark")
 
 
   //TASK: load the stock!
@@ -36,7 +36,6 @@ object Task extends App {
   //your output should have the columns:
   //date average_return yyyy-MM-dd return of all stocks on that date
 
-  println("Average daily returns, by date:")
   dfWithAvgReturn.show()
 //  dfWithDate.orderBy("date")
 //    .select("date", "ticker", "average_return").show()
@@ -69,5 +68,25 @@ object Task extends App {
     .select("ticker", "avgStockFrequency")
     .orderBy(desc("avgStockFrequency"))
     .show()
+
+
+  // BONUS QUESTION
+  // Which stock was the most volatile as measured by annualized standard deviation of daily returns?
+
+  //Volatility = Standard Deviation of Daily Returns
+  //Annualized Standard Deviation = Standard Deviation of Daily Returns * Square Root (250)
+
+  val stDevForDailyReturns = round(stddev("dailyReturn"), 2)
+  val annualizedStDev = round(col("stDevForDailyReturns")*sqrt(lit(250)),2)
+
+  val dfVolatility = dfWithReturn
+    .groupBy("ticker")
+    .agg(stDevForDailyReturns.as("stDevForDailyReturns"))
+    .withColumn("annualizedVolatility", annualizedStDev)
+
+      dfVolatility
+        .select("ticker", "annualizedVolatility")
+        .orderBy(desc("annualizedVolatility"))
+    .show(1)
 
 }

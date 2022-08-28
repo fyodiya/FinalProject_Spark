@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/scala/resources/parquet/average_return.parquet/part-00000-2d67f934-7001-4772-907c-e88aee69dfdf-c000.snappy.parquet" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/scala/resources/parquet/average_return.parquet/part-00000-ee186bba-2a0f-4ac9-8d53-e79390a00560-c000.snappy.parquet" charset="UTF-16" />
+  </component>
+</project>
