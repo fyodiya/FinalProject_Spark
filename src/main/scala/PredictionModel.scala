@@ -2,11 +2,9 @@ import Utilities.SparkUtilities
 import org.apache.spark.ml.Pipeline
 import org.apache.spark.ml.feature.{StringIndexer, OneHotEncoder}
 import org.apache.spark.ml.evaluation.RegressionEvaluator
-import org.apache.spark.ml.feature.{ RFormula, VectorAssembler}
+import org.apache.spark.ml.feature.{VectorAssembler}
 import org.apache.spark.ml.regression.LinearRegression
 import org.apache.spark.ml.tuning.{CrossValidator, ParamGridBuilder}
-import org.apache.spark.sql.expressions.Window
-import org.apache.spark.sql.expressions.Window.partitionBy
 import org.apache.spark.sql.functions.{col, expr, round, to_date}
 
 object PredictionModel extends App {
@@ -50,11 +48,15 @@ object PredictionModel extends App {
     .setOutputCol("dateInd")
 //  dateIndexer.fit(dfWithReturn)
 //      .transform(dfWithReturn)
-  val tickerInd = dateIndexer.fit(dfWithReturn).transform(dfWithReturn.select("ticker"))
+  val dfIndDate = dateIndexer.fit(dfWithReturn).transform(dfWithReturn)
+  val dfForProcessing = dfIndDate
+
   val ohe = new OneHotEncoder()
     .setInputCol("dateInd")
-//    .setOutputCol("dateEnc")
-  ohe.transform()
+    .setOutputCol("dateEnc")
+
+//TODO "ticker" also should be indexed
+
 
   val va = new VectorAssembler()
     .setInputCols(Array("dateInd", "open", "close", "dailyReturn"))
@@ -82,8 +84,9 @@ object PredictionModel extends App {
     .setEstimatorParamMaps(params)
     .setNumFolds(2) //as advised by the book, may be changed to 2
 
-//  val model = pipeline.fit(dfForProcessing)
-//  val prediction = model.transform(dfForProcessing)
-//prediction.show()
+  val model = pipeline.fit(dfForProcessing)
+  val prediction = model.transform(dfForProcessing)
+
+  prediction.show()
 
 }
