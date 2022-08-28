@@ -20,3 +20,4 @@ java.util.concurrent.RejectedExecutionException: Task org.apache.spark.executor.
 22/08/26 20:04:37 WARN executor.ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped
 22/08/28 13:41:27 WARN executor.ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped
 22/08/28 14:47:30 WARN executor.ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped
+22/08/28 18:37:41 WARN executor.ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped

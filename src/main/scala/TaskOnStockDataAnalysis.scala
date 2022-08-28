@@ -1,6 +1,6 @@
 import org.apache.spark.sql.functions.{avg, col, desc, expr, lit, round, sqrt, stddev, sum, to_date}
 
-object Task extends App {
+object TaskOnStockDataAnalysis extends App {
 
   val spark = Utilities.SparkUtilities.getOrCreateSpark("Spark")
 
