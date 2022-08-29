@@ -77,7 +77,7 @@ object PredictionModel extends App {
     .setEstimator(pipeline)
     .setEvaluator(evaluator)
     .setEstimatorParamMaps(params)
-    .setNumFolds(2) //as advised by the book, may be changed to 2
+    .setNumFolds(3) //as advised by the book, may be changed to 2
 
   val modelLR = cv.fit(dfForProcessing)
   val predictionLR = modelLR.transform(dfForProcessing)
