@@ -1449,3 +1449,373 @@ removing nulls from dataset or using handleInvalid = "keep" or "skip".
 22/08/29 00:57:56 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.ForeignLinkerBLAS
 22/08/29 00:57:56 WARN netlib.InstanceBuilder$NativeLAPACK: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
 22/08/29 00:57:56 WARN util.Instrumentation: [6adbb30b] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
+22/08/29 11:11:49 WARN util.Instrumentation: [fde025b7] regParam is zero, which might cause numerical instability and overfitting.
+22/08/29 11:11:49 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+22/08/29 11:11:49 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.ForeignLinkerBLAS
+22/08/29 11:11:49 WARN netlib.InstanceBuilder$NativeLAPACK: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
+22/08/29 11:11:49 WARN util.Instrumentation: [fde025b7] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
+22/08/29 11:29:51 WARN util.Instrumentation: [4f255960] regParam is zero, which might cause numerical instability and overfitting.
+22/08/29 11:29:52 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+22/08/29 11:29:52 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.ForeignLinkerBLAS
+22/08/29 11:29:52 WARN netlib.InstanceBuilder$NativeLAPACK: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
+22/08/29 11:29:52 WARN util.Instrumentation: [4f255960] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
+22/08/29 11:29:54 WARN util.Instrumentation: [bb140cd2] regParam is zero, which might cause numerical instability and overfitting.
+22/08/29 11:29:54 WARN util.Instrumentation: [bb140cd2] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
+22/08/29 11:29:55 WARN util.Instrumentation: [59707c92] regParam is zero, which might cause numerical instability and overfitting.
+22/08/29 11:29:55 WARN util.Instrumentation: [59707c92] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
+22/08/29 11:32:36 ERROR util.Instrumentation: java.lang.IllegalArgumentException: requirement failed: Output column dateInd already exists.
+	at scala.Predef$.require(Predef.scala:337)
+	at org.apache.spark.ml.feature.StringIndexerBase.validateAndTransformField(StringIndexer.scala:110)
+	at org.apache.spark.ml.feature.StringIndexerBase.$anonfun$validateAndTransformSchema$2(StringIndexer.scala:126)
+	at scala.collection.ArrayOps$.flatMap$extension(ArrayOps.scala:964)
+	at org.apache.spark.ml.feature.StringIndexerBase.validateAndTransformSchema(StringIndexer.scala:123)
+	at org.apache.spark.ml.feature.StringIndexerBase.validateAndTransformSchema$(StringIndexer.scala:115)
+	at org.apache.spark.ml.feature.StringIndexer.validateAndTransformSchema(StringIndexer.scala:145)
+	at org.apache.spark.ml.feature.StringIndexer.transformSchema(StringIndexer.scala:252)
+	at org.apache.spark.ml.Pipeline.$anonfun$transformSchema$4(Pipeline.scala:183)
+	at scala.collection.ArrayOps$.foldLeft$extension(ArrayOps.scala:779)
+	at org.apache.spark.ml.Pipeline.transformSchema(Pipeline.scala:183)
+	at org.apache.spark.ml.tuning.ValidatorParams.$anonfun$transformSchemaImpl$2(ValidatorParams.scala:75)
+	at scala.collection.ArrayOps$.foreach$extension(ArrayOps.scala:1328)
+	at org.apache.spark.ml.tuning.ValidatorParams.transformSchemaImpl(ValidatorParams.scala:74)
+	at org.apache.spark.ml.tuning.ValidatorParams.transformSchemaImpl$(ValidatorParams.scala:70)
+	at org.apache.spark.ml.tuning.CrossValidator.transformSchemaImpl(CrossValidator.scala:80)
+	at org.apache.spark.ml.tuning.CrossValidator.transformSchema(CrossValidator.scala:212)
+	at org.apache.spark.ml.PipelineStage.transformSchema(Pipeline.scala:71)
+	at org.apache.spark.ml.tuning.CrossValidator.$anonfun$fit$1(CrossValidator.scala:139)
+	at org.apache.spark.ml.util.Instrumentation$.$anonfun$instrumented$1(Instrumentation.scala:191)
+	at scala.util.Try$.apply(Try.scala:210)
+	at org.apache.spark.ml.util.Instrumentation$.instrumented(Instrumentation.scala:191)
+	at org.apache.spark.ml.tuning.CrossValidator.fit(CrossValidator.scala:137)
+	at PredictionModel$.delayedEndpoint$PredictionModel$1(PredictionModel.scala:72)
+	at PredictionModel$delayedInit$body.apply(PredictionModel.scala:10)
+	at scala.Function0.apply$mcV$sp(Function0.scala:39)
+	at scala.Function0.apply$mcV$sp$(Function0.scala:39)
+	at scala.runtime.AbstractFunction0.apply$mcV$sp(AbstractFunction0.scala:17)
+	at scala.App.$anonfun$main$1(App.scala:76)
+	at scala.App.$anonfun$main$1$adapted(App.scala:76)
+	at scala.collection.IterableOnceOps.foreach(IterableOnce.scala:563)
+	at scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:561)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:926)
+	at scala.App.main(App.scala:76)
+	at scala.App.main$(App.scala:74)
+	at PredictionModel$.main(PredictionModel.scala:10)
+	at PredictionModel.main(PredictionModel.scala)
+
+22/08/29 11:41:32 WARN util.Instrumentation: [6a4194fd] regParam is zero, which might cause numerical instability and overfitting.
+22/08/29 11:41:33 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+22/08/29 11:41:33 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.ForeignLinkerBLAS
+22/08/29 11:41:33 WARN netlib.InstanceBuilder$NativeLAPACK: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
+22/08/29 11:41:33 WARN util.Instrumentation: [6a4194fd] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
+22/08/29 11:41:34 WARN executor.ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped
+22/08/29 11:41:35 WARN util.Instrumentation: [f613a634] regParam is zero, which might cause numerical instability and overfitting.
+22/08/29 11:41:35 WARN util.Instrumentation: [f613a634] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
+22/08/29 11:41:35 WARN util.Instrumentation: [ded349a2] regParam is zero, which might cause numerical instability and overfitting.
+22/08/29 11:41:35 WARN util.Instrumentation: [ded349a2] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
+22/08/29 11:55:22 WARN util.Instrumentation: [71cb5ccd] regParam is zero, which might cause numerical instability and overfitting.
+22/08/29 11:55:22 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+22/08/29 11:55:22 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.ForeignLinkerBLAS
+22/08/29 11:55:23 WARN netlib.InstanceBuilder$NativeLAPACK: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
+22/08/29 11:55:23 WARN util.Instrumentation: [71cb5ccd] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
+22/08/29 11:55:23 WARN netlib.BLAS: Failed to load implementation from: com.github.fommil.netlib.NativeSystemBLAS
+22/08/29 11:55:23 WARN netlib.BLAS: Failed to load implementation from: com.github.fommil.netlib.NativeRefBLAS
+22/08/29 11:55:24 ERROR util.Instrumentation: java.lang.IllegalArgumentException: Output column features already exists.
+	at org.apache.spark.ml.feature.VectorAssembler.transformSchema(VectorAssembler.scala:171)
+	at org.apache.spark.ml.Pipeline.$anonfun$transformSchema$4(Pipeline.scala:183)
+	at scala.collection.ArrayOps$.foldLeft$extension(ArrayOps.scala:779)
+	at org.apache.spark.ml.Pipeline.transformSchema(Pipeline.scala:183)
+	at org.apache.spark.ml.tuning.ValidatorParams.$anonfun$transformSchemaImpl$2(ValidatorParams.scala:75)
+	at scala.collection.ArrayOps$.foreach$extension(ArrayOps.scala:1328)
+	at org.apache.spark.ml.tuning.ValidatorParams.transformSchemaImpl(ValidatorParams.scala:74)
+	at org.apache.spark.ml.tuning.ValidatorParams.transformSchemaImpl$(ValidatorParams.scala:70)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.transformSchemaImpl(TrainValidationSplit.scala:68)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.transformSchema(TrainValidationSplit.scala:182)
+	at org.apache.spark.ml.PipelineStage.transformSchema(Pipeline.scala:71)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.$anonfun$fit$1(TrainValidationSplit.scala:123)
+	at org.apache.spark.ml.util.Instrumentation$.$anonfun$instrumented$1(Instrumentation.scala:191)
+	at scala.util.Try$.apply(Try.scala:210)
+	at org.apache.spark.ml.util.Instrumentation$.instrumented(Instrumentation.scala:191)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.fit(TrainValidationSplit.scala:121)
+	at PredictionModel$.delayedEndpoint$PredictionModel$1(PredictionModel.scala:92)
+	at PredictionModel$delayedInit$body.apply(PredictionModel.scala:10)
+	at scala.Function0.apply$mcV$sp(Function0.scala:39)
+	at scala.Function0.apply$mcV$sp$(Function0.scala:39)
+	at scala.runtime.AbstractFunction0.apply$mcV$sp(AbstractFunction0.scala:17)
+	at scala.App.$anonfun$main$1(App.scala:76)
+	at scala.App.$anonfun$main$1$adapted(App.scala:76)
+	at scala.collection.IterableOnceOps.foreach(IterableOnce.scala:563)
+	at scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:561)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:926)
+	at scala.App.main(App.scala:76)
+	at scala.App.main$(App.scala:74)
+	at PredictionModel$.main(PredictionModel.scala:10)
+	at PredictionModel.main(PredictionModel.scala)
+
+22/08/29 11:57:56 WARN util.Instrumentation: [d9489cdf] regParam is zero, which might cause numerical instability and overfitting.
+22/08/29 11:57:57 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+22/08/29 11:57:57 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.ForeignLinkerBLAS
+22/08/29 11:57:57 WARN netlib.InstanceBuilder$NativeLAPACK: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
+22/08/29 11:57:57 WARN util.Instrumentation: [d9489cdf] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
+22/08/29 11:57:57 WARN netlib.BLAS: Failed to load implementation from: com.github.fommil.netlib.NativeSystemBLAS
+22/08/29 11:57:57 WARN netlib.BLAS: Failed to load implementation from: com.github.fommil.netlib.NativeRefBLAS
+22/08/29 11:57:58 ERROR util.Instrumentation: java.lang.IllegalArgumentException: Output column features already exists.
+	at org.apache.spark.ml.feature.VectorAssembler.transformSchema(VectorAssembler.scala:171)
+	at org.apache.spark.ml.Pipeline.$anonfun$transformSchema$4(Pipeline.scala:183)
+	at scala.collection.ArrayOps$.foldLeft$extension(ArrayOps.scala:779)
+	at org.apache.spark.ml.Pipeline.transformSchema(Pipeline.scala:183)
+	at org.apache.spark.ml.tuning.ValidatorParams.$anonfun$transformSchemaImpl$2(ValidatorParams.scala:75)
+	at scala.collection.ArrayOps$.foreach$extension(ArrayOps.scala:1328)
+	at org.apache.spark.ml.tuning.ValidatorParams.transformSchemaImpl(ValidatorParams.scala:74)
+	at org.apache.spark.ml.tuning.ValidatorParams.transformSchemaImpl$(ValidatorParams.scala:70)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.transformSchemaImpl(TrainValidationSplit.scala:68)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.transformSchema(TrainValidationSplit.scala:182)
+	at org.apache.spark.ml.PipelineStage.transformSchema(Pipeline.scala:71)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.$anonfun$fit$1(TrainValidationSplit.scala:123)
+	at org.apache.spark.ml.util.Instrumentation$.$anonfun$instrumented$1(Instrumentation.scala:191)
+	at scala.util.Try$.apply(Try.scala:210)
+	at org.apache.spark.ml.util.Instrumentation$.instrumented(Instrumentation.scala:191)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.fit(TrainValidationSplit.scala:121)
+	at PredictionModel$.delayedEndpoint$PredictionModel$1(PredictionModel.scala:92)
+	at PredictionModel$delayedInit$body.apply(PredictionModel.scala:10)
+	at scala.Function0.apply$mcV$sp(Function0.scala:39)
+	at scala.Function0.apply$mcV$sp$(Function0.scala:39)
+	at scala.runtime.AbstractFunction0.apply$mcV$sp(AbstractFunction0.scala:17)
+	at scala.App.$anonfun$main$1(App.scala:76)
+	at scala.App.$anonfun$main$1$adapted(App.scala:76)
+	at scala.collection.IterableOnceOps.foreach(IterableOnce.scala:563)
+	at scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:561)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:926)
+	at scala.App.main(App.scala:76)
+	at scala.App.main$(App.scala:74)
+	at PredictionModel$.main(PredictionModel.scala:10)
+	at PredictionModel.main(PredictionModel.scala)
+
+22/08/29 12:04:17 WARN util.Instrumentation: [fe29cb51] regParam is zero, which might cause numerical instability and overfitting.
+22/08/29 12:04:18 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+22/08/29 12:04:18 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.ForeignLinkerBLAS
+22/08/29 12:04:18 WARN netlib.InstanceBuilder$NativeLAPACK: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
+22/08/29 12:04:18 WARN util.Instrumentation: [fe29cb51] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
+22/08/29 12:04:19 WARN netlib.BLAS: Failed to load implementation from: com.github.fommil.netlib.NativeSystemBLAS
+22/08/29 12:04:19 WARN netlib.BLAS: Failed to load implementation from: com.github.fommil.netlib.NativeRefBLAS
+22/08/29 12:04:19 ERROR util.Instrumentation: java.lang.IllegalArgumentException: Output column features already exists.
+	at org.apache.spark.ml.feature.VectorAssembler.transformSchema(VectorAssembler.scala:171)
+	at org.apache.spark.ml.Pipeline.$anonfun$transformSchema$4(Pipeline.scala:183)
+	at scala.collection.ArrayOps$.foldLeft$extension(ArrayOps.scala:779)
+	at org.apache.spark.ml.Pipeline.transformSchema(Pipeline.scala:183)
+	at org.apache.spark.ml.tuning.ValidatorParams.$anonfun$transformSchemaImpl$2(ValidatorParams.scala:75)
+	at scala.collection.ArrayOps$.foreach$extension(ArrayOps.scala:1328)
+	at org.apache.spark.ml.tuning.ValidatorParams.transformSchemaImpl(ValidatorParams.scala:74)
+	at org.apache.spark.ml.tuning.ValidatorParams.transformSchemaImpl$(ValidatorParams.scala:70)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.transformSchemaImpl(TrainValidationSplit.scala:68)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.transformSchema(TrainValidationSplit.scala:182)
+	at org.apache.spark.ml.PipelineStage.transformSchema(Pipeline.scala:71)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.$anonfun$fit$1(TrainValidationSplit.scala:123)
+	at org.apache.spark.ml.util.Instrumentation$.$anonfun$instrumented$1(Instrumentation.scala:191)
+	at scala.util.Try$.apply(Try.scala:210)
+	at org.apache.spark.ml.util.Instrumentation$.instrumented(Instrumentation.scala:191)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.fit(TrainValidationSplit.scala:121)
+	at PredictionModel$.delayedEndpoint$PredictionModel$1(PredictionModel.scala:90)
+	at PredictionModel$delayedInit$body.apply(PredictionModel.scala:10)
+	at scala.Function0.apply$mcV$sp(Function0.scala:39)
+	at scala.Function0.apply$mcV$sp$(Function0.scala:39)
+	at scala.runtime.AbstractFunction0.apply$mcV$sp(AbstractFunction0.scala:17)
+	at scala.App.$anonfun$main$1(App.scala:76)
+	at scala.App.$anonfun$main$1$adapted(App.scala:76)
+	at scala.collection.IterableOnceOps.foreach(IterableOnce.scala:563)
+	at scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:561)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:926)
+	at scala.App.main(App.scala:76)
+	at scala.App.main$(App.scala:74)
+	at PredictionModel$.main(PredictionModel.scala:10)
+	at PredictionModel.main(PredictionModel.scala)
+
+22/08/29 12:08:48 WARN util.Instrumentation: [76f00f95] regParam is zero, which might cause numerical instability and overfitting.
+22/08/29 12:08:48 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+22/08/29 12:08:48 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.ForeignLinkerBLAS
+22/08/29 12:08:48 WARN netlib.InstanceBuilder$NativeLAPACK: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
+22/08/29 12:08:48 WARN util.Instrumentation: [76f00f95] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
+22/08/29 12:08:49 ERROR util.Instrumentation: java.lang.IllegalArgumentException: Output column features already exists.
+	at org.apache.spark.ml.feature.VectorAssembler.transformSchema(VectorAssembler.scala:171)
+	at org.apache.spark.ml.Pipeline.$anonfun$transformSchema$4(Pipeline.scala:183)
+	at scala.collection.ArrayOps$.foldLeft$extension(ArrayOps.scala:779)
+	at org.apache.spark.ml.Pipeline.transformSchema(Pipeline.scala:183)
+	at org.apache.spark.ml.tuning.ValidatorParams.$anonfun$transformSchemaImpl$2(ValidatorParams.scala:75)
+	at scala.collection.ArrayOps$.foreach$extension(ArrayOps.scala:1328)
+	at org.apache.spark.ml.tuning.ValidatorParams.transformSchemaImpl(ValidatorParams.scala:74)
+	at org.apache.spark.ml.tuning.ValidatorParams.transformSchemaImpl$(ValidatorParams.scala:70)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.transformSchemaImpl(TrainValidationSplit.scala:68)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.transformSchema(TrainValidationSplit.scala:182)
+	at org.apache.spark.ml.PipelineStage.transformSchema(Pipeline.scala:71)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.$anonfun$fit$1(TrainValidationSplit.scala:123)
+	at org.apache.spark.ml.util.Instrumentation$.$anonfun$instrumented$1(Instrumentation.scala:191)
+	at scala.util.Try$.apply(Try.scala:210)
+	at org.apache.spark.ml.util.Instrumentation$.instrumented(Instrumentation.scala:191)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.fit(TrainValidationSplit.scala:121)
+	at PredictionModel$.delayedEndpoint$PredictionModel$1(PredictionModel.scala:88)
+	at PredictionModel$delayedInit$body.apply(PredictionModel.scala:10)
+	at scala.Function0.apply$mcV$sp(Function0.scala:39)
+	at scala.Function0.apply$mcV$sp$(Function0.scala:39)
+	at scala.runtime.AbstractFunction0.apply$mcV$sp(AbstractFunction0.scala:17)
+	at scala.App.$anonfun$main$1(App.scala:76)
+	at scala.App.$anonfun$main$1$adapted(App.scala:76)
+	at scala.collection.IterableOnceOps.foreach(IterableOnce.scala:563)
+	at scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:561)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:926)
+	at scala.App.main(App.scala:76)
+	at scala.App.main$(App.scala:74)
+	at PredictionModel$.main(PredictionModel.scala:10)
+	at PredictionModel.main(PredictionModel.scala)
+
+22/08/29 12:22:31 WARN util.Instrumentation: [c1a8c4db] regParam is zero, which might cause numerical instability and overfitting.
+22/08/29 12:22:32 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+22/08/29 12:22:32 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.ForeignLinkerBLAS
+22/08/29 12:22:32 WARN netlib.InstanceBuilder$NativeLAPACK: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
+22/08/29 12:22:32 ERROR util.Instrumentation: java.lang.IllegalArgumentException: Output column features already exists.
+	at org.apache.spark.ml.feature.VectorAssembler.transformSchema(VectorAssembler.scala:171)
+	at org.apache.spark.ml.Pipeline.$anonfun$transformSchema$4(Pipeline.scala:183)
+	at scala.collection.ArrayOps$.foldLeft$extension(ArrayOps.scala:779)
+	at org.apache.spark.ml.Pipeline.transformSchema(Pipeline.scala:183)
+	at org.apache.spark.ml.tuning.ValidatorParams.$anonfun$transformSchemaImpl$2(ValidatorParams.scala:75)
+	at scala.collection.ArrayOps$.foreach$extension(ArrayOps.scala:1328)
+	at org.apache.spark.ml.tuning.ValidatorParams.transformSchemaImpl(ValidatorParams.scala:74)
+	at org.apache.spark.ml.tuning.ValidatorParams.transformSchemaImpl$(ValidatorParams.scala:70)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.transformSchemaImpl(TrainValidationSplit.scala:68)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.transformSchema(TrainValidationSplit.scala:182)
+	at org.apache.spark.ml.PipelineStage.transformSchema(Pipeline.scala:71)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.$anonfun$fit$1(TrainValidationSplit.scala:123)
+	at org.apache.spark.ml.util.Instrumentation$.$anonfun$instrumented$1(Instrumentation.scala:191)
+	at scala.util.Try$.apply(Try.scala:210)
+	at org.apache.spark.ml.util.Instrumentation$.instrumented(Instrumentation.scala:191)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.fit(TrainValidationSplit.scala:121)
+	at PredictionModel$.delayedEndpoint$PredictionModel$1(PredictionModel.scala:89)
+	at PredictionModel$delayedInit$body.apply(PredictionModel.scala:10)
+	at scala.Function0.apply$mcV$sp(Function0.scala:39)
+	at scala.Function0.apply$mcV$sp$(Function0.scala:39)
+	at scala.runtime.AbstractFunction0.apply$mcV$sp(AbstractFunction0.scala:17)
+	at scala.App.$anonfun$main$1(App.scala:76)
+	at scala.App.$anonfun$main$1$adapted(App.scala:76)
+	at scala.collection.IterableOnceOps.foreach(IterableOnce.scala:563)
+	at scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:561)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:926)
+	at scala.App.main(App.scala:76)
+	at scala.App.main$(App.scala:74)
+	at PredictionModel$.main(PredictionModel.scala:10)
+	at PredictionModel.main(PredictionModel.scala)
+
+22/08/29 12:26:38 WARN util.Instrumentation: [b7bae696] regParam is zero, which might cause numerical instability and overfitting.
+22/08/29 12:26:38 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+22/08/29 12:26:38 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.ForeignLinkerBLAS
+22/08/29 12:26:38 WARN netlib.InstanceBuilder$NativeLAPACK: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
+22/08/29 12:26:38 WARN util.Instrumentation: [b7bae696] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
+22/08/29 12:26:39 ERROR util.Instrumentation: java.lang.IllegalArgumentException: Output column features already exists.
+	at org.apache.spark.ml.feature.VectorAssembler.transformSchema(VectorAssembler.scala:171)
+	at org.apache.spark.ml.Pipeline.$anonfun$transformSchema$4(Pipeline.scala:183)
+	at scala.collection.ArrayOps$.foldLeft$extension(ArrayOps.scala:779)
+	at org.apache.spark.ml.Pipeline.transformSchema(Pipeline.scala:183)
+	at org.apache.spark.ml.tuning.ValidatorParams.$anonfun$transformSchemaImpl$2(ValidatorParams.scala:75)
+	at scala.collection.ArrayOps$.foreach$extension(ArrayOps.scala:1328)
+	at org.apache.spark.ml.tuning.ValidatorParams.transformSchemaImpl(ValidatorParams.scala:74)
+	at org.apache.spark.ml.tuning.ValidatorParams.transformSchemaImpl$(ValidatorParams.scala:70)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.transformSchemaImpl(TrainValidationSplit.scala:68)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.transformSchema(TrainValidationSplit.scala:182)
+	at org.apache.spark.ml.PipelineStage.transformSchema(Pipeline.scala:71)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.$anonfun$fit$1(TrainValidationSplit.scala:123)
+	at org.apache.spark.ml.util.Instrumentation$.$anonfun$instrumented$1(Instrumentation.scala:191)
+	at scala.util.Try$.apply(Try.scala:210)
+	at org.apache.spark.ml.util.Instrumentation$.instrumented(Instrumentation.scala:191)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.fit(TrainValidationSplit.scala:121)
+	at PredictionModel$.delayedEndpoint$PredictionModel$1(PredictionModel.scala:88)
+	at PredictionModel$delayedInit$body.apply(PredictionModel.scala:10)
+	at scala.Function0.apply$mcV$sp(Function0.scala:39)
+	at scala.Function0.apply$mcV$sp$(Function0.scala:39)
+	at scala.runtime.AbstractFunction0.apply$mcV$sp(AbstractFunction0.scala:17)
+	at scala.App.$anonfun$main$1(App.scala:76)
+	at scala.App.$anonfun$main$1$adapted(App.scala:76)
+	at scala.collection.IterableOnceOps.foreach(IterableOnce.scala:563)
+	at scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:561)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:926)
+	at scala.App.main(App.scala:76)
+	at scala.App.main$(App.scala:74)
+	at PredictionModel$.main(PredictionModel.scala:10)
+	at PredictionModel.main(PredictionModel.scala)
+
+22/08/29 12:27:47 WARN util.Instrumentation: [defaf08d] regParam is zero, which might cause numerical instability and overfitting.
+22/08/29 12:27:48 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+22/08/29 12:27:48 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.ForeignLinkerBLAS
+22/08/29 12:27:48 WARN netlib.InstanceBuilder$NativeLAPACK: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
+22/08/29 12:27:48 WARN util.Instrumentation: [defaf08d] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
+22/08/29 12:27:48 ERROR util.Instrumentation: java.lang.IllegalArgumentException: Output column features already exists.
+	at org.apache.spark.ml.feature.VectorAssembler.transformSchema(VectorAssembler.scala:171)
+	at org.apache.spark.ml.Pipeline.$anonfun$transformSchema$4(Pipeline.scala:183)
+	at scala.collection.ArrayOps$.foldLeft$extension(ArrayOps.scala:779)
+	at org.apache.spark.ml.Pipeline.transformSchema(Pipeline.scala:183)
+	at org.apache.spark.ml.tuning.ValidatorParams.$anonfun$transformSchemaImpl$2(ValidatorParams.scala:75)
+	at scala.collection.ArrayOps$.foreach$extension(ArrayOps.scala:1328)
+	at org.apache.spark.ml.tuning.ValidatorParams.transformSchemaImpl(ValidatorParams.scala:74)
+	at org.apache.spark.ml.tuning.ValidatorParams.transformSchemaImpl$(ValidatorParams.scala:70)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.transformSchemaImpl(TrainValidationSplit.scala:68)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.transformSchema(TrainValidationSplit.scala:182)
+	at org.apache.spark.ml.PipelineStage.transformSchema(Pipeline.scala:71)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.$anonfun$fit$1(TrainValidationSplit.scala:123)
+	at org.apache.spark.ml.util.Instrumentation$.$anonfun$instrumented$1(Instrumentation.scala:191)
+	at scala.util.Try$.apply(Try.scala:210)
+	at org.apache.spark.ml.util.Instrumentation$.instrumented(Instrumentation.scala:191)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.fit(TrainValidationSplit.scala:121)
+	at PredictionModel$.delayedEndpoint$PredictionModel$1(PredictionModel.scala:85)
+	at PredictionModel$delayedInit$body.apply(PredictionModel.scala:10)
+	at scala.Function0.apply$mcV$sp(Function0.scala:39)
+	at scala.Function0.apply$mcV$sp$(Function0.scala:39)
+	at scala.runtime.AbstractFunction0.apply$mcV$sp(AbstractFunction0.scala:17)
+	at scala.App.$anonfun$main$1(App.scala:76)
+	at scala.App.$anonfun$main$1$adapted(App.scala:76)
+	at scala.collection.IterableOnceOps.foreach(IterableOnce.scala:563)
+	at scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:561)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:926)
+	at scala.App.main(App.scala:76)
+	at scala.App.main$(App.scala:74)
+	at PredictionModel$.main(PredictionModel.scala:10)
+	at PredictionModel.main(PredictionModel.scala)
+
+22/08/29 12:28:57 WARN util.Instrumentation: [591f3494] regParam is zero, which might cause numerical instability and overfitting.
+22/08/29 12:28:57 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+22/08/29 12:28:57 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.ForeignLinkerBLAS
+22/08/29 12:28:57 WARN netlib.InstanceBuilder$NativeLAPACK: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
+22/08/29 12:28:57 WARN util.Instrumentation: [591f3494] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
+22/08/29 12:28:58 ERROR util.Instrumentation: java.lang.IllegalArgumentException: Output column features already exists.
+	at org.apache.spark.ml.feature.VectorAssembler.transformSchema(VectorAssembler.scala:171)
+	at org.apache.spark.ml.Pipeline.$anonfun$transformSchema$4(Pipeline.scala:183)
+	at scala.collection.ArrayOps$.foldLeft$extension(ArrayOps.scala:779)
+	at org.apache.spark.ml.Pipeline.transformSchema(Pipeline.scala:183)
+	at org.apache.spark.ml.tuning.ValidatorParams.$anonfun$transformSchemaImpl$2(ValidatorParams.scala:75)
+	at scala.collection.ArrayOps$.foreach$extension(ArrayOps.scala:1328)
+	at org.apache.spark.ml.tuning.ValidatorParams.transformSchemaImpl(ValidatorParams.scala:74)
+	at org.apache.spark.ml.tuning.ValidatorParams.transformSchemaImpl$(ValidatorParams.scala:70)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.transformSchemaImpl(TrainValidationSplit.scala:68)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.transformSchema(TrainValidationSplit.scala:182)
+	at org.apache.spark.ml.PipelineStage.transformSchema(Pipeline.scala:71)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.$anonfun$fit$1(TrainValidationSplit.scala:123)
+	at org.apache.spark.ml.util.Instrumentation$.$anonfun$instrumented$1(Instrumentation.scala:191)
+	at scala.util.Try$.apply(Try.scala:210)
+	at org.apache.spark.ml.util.Instrumentation$.instrumented(Instrumentation.scala:191)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.fit(TrainValidationSplit.scala:121)
+	at PredictionModel$.delayedEndpoint$PredictionModel$1(PredictionModel.scala:85)
+	at PredictionModel$delayedInit$body.apply(PredictionModel.scala:10)
+	at scala.Function0.apply$mcV$sp(Function0.scala:39)
+	at scala.Function0.apply$mcV$sp$(Function0.scala:39)
+	at scala.runtime.AbstractFunction0.apply$mcV$sp(AbstractFunction0.scala:17)
+	at scala.App.$anonfun$main$1(App.scala:76)
+	at scala.App.$anonfun$main$1$adapted(App.scala:76)
+	at scala.collection.IterableOnceOps.foreach(IterableOnce.scala:563)
+	at scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:561)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:926)
+	at scala.App.main(App.scala:76)
+	at scala.App.main$(App.scala:74)
+	at PredictionModel$.main(PredictionModel.scala:10)
+	at PredictionModel.main(PredictionModel.scala)
+
+22/08/29 12:30:47 WARN util.Instrumentation: [ccd64ce0] regParam is zero, which might cause numerical instability and overfitting.
+22/08/29 12:30:47 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+22/08/29 12:30:47 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.ForeignLinkerBLAS
+22/08/29 12:30:47 WARN netlib.InstanceBuilder$NativeLAPACK: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
+22/08/29 12:30:47 WARN util.Instrumentation: [ccd64ce0] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
+22/08/29 12:30:51 WARN executor.ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped
