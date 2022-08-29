@@ -1,11 +1,10 @@
 import Utilities.SparkUtilities
-import org.apache.spark.ml.{Pipeline, PipelineModel}
-import org.apache.spark.ml.classification.{LogisticRegression, LogisticRegressionModel}
+import org.apache.spark.ml.{Pipeline}
 import org.apache.spark.ml.feature.{OneHotEncoder, RFormula, StringIndexer, VectorAssembler}
 import org.apache.spark.ml.evaluation.RegressionEvaluator
 import org.apache.spark.ml.regression.LinearRegression
-import org.apache.spark.ml.tuning.{CrossValidator, ParamGridBuilder, TrainValidationSplit, TrainValidationSplitModel}
-import org.apache.spark.sql.functions.{col, expr, round, to_date}
+import org.apache.spark.ml.tuning.{CrossValidator, ParamGridBuilder}
+import org.apache.spark.sql.functions.{expr, round}
 
 object PredictionModel extends App {
 
@@ -69,10 +68,8 @@ object PredictionModel extends App {
 
   val pipeline = new Pipeline()
     .setStages(Array(va, linReg))
-  //.setStages(Array(va, ohe, dateIndexer, linReg))
 
   val evaluator = new RegressionEvaluator()
-//    .setMetricName("rmse")
     .setPredictionCol("prediction")
     .setLabelCol("close")
 
@@ -84,7 +81,7 @@ object PredictionModel extends App {
 
   val modelLR = cv.fit(dfForProcessing)
   val predictionLR = modelLR.transform(dfForProcessing)
-//
+
   predictionLR.show()
 
 }
