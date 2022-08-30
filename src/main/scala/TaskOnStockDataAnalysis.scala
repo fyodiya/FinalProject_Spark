@@ -35,7 +35,7 @@ object TaskOnStockDataAnalysis extends App {
   //TASK: print the results on screen!
   //your output should have the columns:
   //date average_return yyyy-MM-dd return of all stocks on that date
-
+println("************************************ AVERAGE RETURNS ************************************")
   dfWithAvgReturn.show()
 //  dfWithDate.orderBy("date")
 //    .select("date", "ticker", "average_return").show()
@@ -57,12 +57,14 @@ object TaskOnStockDataAnalysis extends App {
   //TASK: Find which stock was traded most frequently
   //as measured by closing price * volume - on average!
 
+  println("************************************ STOCKS TRADING FREQUENCY ************************************")
   val stockFreq = col("volume") * col("close")
   val dfWithStockFreq = dfWithDate.withColumn("stockFrequency", stockFreq)
   dfWithStockFreq
     .orderBy(desc("stockFrequency"))
     .show()
 
+println("************************************ STOCKS RANKED BY THEIR TRADING FREQUENCY ************************************")
   dfWithStockFreq
     .groupBy("ticker")
     .agg(sum("stockFrequency"), avg("stockFrequency").as("avgStockFrequency"))
@@ -80,11 +82,14 @@ object TaskOnStockDataAnalysis extends App {
   val stDevForDailyReturns = round(stddev("dailyReturn"), 2)
   val annualizedStDev = round(col("stDevForDailyReturns")*sqrt(lit(250)),2)
 
+  println("************************************ STOCK VOLATILITY ************************************")
   val dfVolatility = dfWithReturn
     .groupBy("ticker")
     .agg(stDevForDailyReturns.as("stDevForDailyReturns"))
     .withColumn("annualizedVolatility", annualizedStDev)
+  dfVolatility.show()
 
+  println(s"************************************ THE MOST VOLATILE STOCK WAS: ************************************")
       dfVolatility
         .select("ticker", "annualizedVolatility")
         .orderBy(desc("annualizedVolatility"))
