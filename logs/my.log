@@ -1908,3 +1908,121 @@ removing nulls from dataset or using handleInvalid = "keep" or "skip".
 22/08/30 13:24:13 WARN netlib.InstanceBuilder$NativeLAPACK: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
 22/08/30 13:24:13 WARN util.Instrumentation: [c8953bfe] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
 22/08/30 13:24:15 WARN executor.ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped
+22/08/30 19:02:57 WARN executor.ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped
+22/08/30 19:03:07 WARN component.AbstractLifeCycle: FAILED ServerConnector@64bc21ac{HTTP/1.1, (http/1.1)}{0.0.0.0:4040}: java.io.IOException: Failed to bind to /0.0.0.0:4040
+java.io.IOException: Failed to bind to /0.0.0.0:4040
+	at org.sparkproject.jetty.server.ServerConnector.openAcceptChannel(ServerConnector.java:349)
+	at org.sparkproject.jetty.server.ServerConnector.open(ServerConnector.java:310)
+	at org.sparkproject.jetty.server.AbstractNetworkConnector.doStart(AbstractNetworkConnector.java:80)
+	at org.sparkproject.jetty.server.ServerConnector.doStart(ServerConnector.java:234)
+	at org.sparkproject.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:73)
+	at org.apache.spark.ui.JettyUtils$.newConnector$1(JettyUtils.scala:303)
+	at org.apache.spark.ui.JettyUtils$.httpConnect$1(JettyUtils.scala:334)
+	at org.apache.spark.ui.JettyUtils$.$anonfun$startJettyServer$5(JettyUtils.scala:337)
+	at org.apache.spark.ui.JettyUtils$.$anonfun$startJettyServer$5$adapted(JettyUtils.scala:337)
+	at org.apache.spark.util.Utils$.$anonfun$startServiceOnPort$2(Utils.scala:2383)
+	at scala.collection.immutable.Range.foreach$mVc$sp(Range.scala:190)
+	at org.apache.spark.util.Utils$.startServiceOnPort(Utils.scala:2375)
+	at org.apache.spark.ui.JettyUtils$.startJettyServer(JettyUtils.scala:338)
+	at org.apache.spark.ui.WebUI.bind(WebUI.scala:147)
+	at org.apache.spark.SparkContext.$anonfun$new$11(SparkContext.scala:488)
+	at org.apache.spark.SparkContext.$anonfun$new$11$adapted(SparkContext.scala:488)
+	at scala.Option.foreach(Option.scala:437)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:488)
+	at org.apache.spark.SparkContext$.getOrCreate(SparkContext.scala:2690)
+	at org.apache.spark.sql.SparkSession$Builder.$anonfun$getOrCreate$2(SparkSession.scala:949)
+	at scala.Option.getOrElse(Option.scala:201)
+	at org.apache.spark.sql.SparkSession$Builder.getOrCreate(SparkSession.scala:943)
+	at Utilities.SparkUtilities$.getOrCreateSpark(SparkUtilities.scala:21)
+	at TaskOnStockDataAnalysis$.delayedEndpoint$TaskOnStockDataAnalysis$1(TaskOnStockDataAnalysis.scala:5)
+	at TaskOnStockDataAnalysis$delayedInit$body.apply(TaskOnStockDataAnalysis.scala:3)
+	at scala.Function0.apply$mcV$sp(Function0.scala:39)
+	at scala.Function0.apply$mcV$sp$(Function0.scala:39)
+	at scala.runtime.AbstractFunction0.apply$mcV$sp(AbstractFunction0.scala:17)
+	at scala.App.$anonfun$main$1(App.scala:76)
+	at scala.App.$anonfun$main$1$adapted(App.scala:76)
+	at scala.collection.IterableOnceOps.foreach(IterableOnce.scala:563)
+	at scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:561)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:926)
+	at scala.App.main(App.scala:76)
+	at scala.App.main$(App.scala:74)
+	at TaskOnStockDataAnalysis$.main(TaskOnStockDataAnalysis.scala:3)
+	at TaskOnStockDataAnalysis.main(TaskOnStockDataAnalysis.scala)
+Caused by: java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:461)
+	at sun.nio.ch.Net.bind(Net.java:453)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:222)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:85)
+	at org.sparkproject.jetty.server.ServerConnector.openAcceptChannel(ServerConnector.java:344)
+	... 36 more
+22/08/30 19:03:08 WARN util.Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+22/08/30 19:03:22 WARN executor.ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped
+22/08/30 19:04:12 WARN util.Instrumentation: [948f594f] regParam is zero, which might cause numerical instability and overfitting.
+22/08/30 19:04:16 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+22/08/30 19:04:16 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.ForeignLinkerBLAS
+22/08/30 19:04:18 WARN netlib.InstanceBuilder$NativeLAPACK: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
+22/08/30 19:04:19 WARN util.Instrumentation: [948f594f] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
+22/08/30 19:05:02 WARN component.AbstractLifeCycle: FAILED ServerConnector@64bc21ac{HTTP/1.1, (http/1.1)}{0.0.0.0:4040}: java.io.IOException: Failed to bind to /0.0.0.0:4040
+java.io.IOException: Failed to bind to /0.0.0.0:4040
+	at org.sparkproject.jetty.server.ServerConnector.openAcceptChannel(ServerConnector.java:349)
+	at org.sparkproject.jetty.server.ServerConnector.open(ServerConnector.java:310)
+	at org.sparkproject.jetty.server.AbstractNetworkConnector.doStart(AbstractNetworkConnector.java:80)
+	at org.sparkproject.jetty.server.ServerConnector.doStart(ServerConnector.java:234)
+	at org.sparkproject.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:73)
+	at org.apache.spark.ui.JettyUtils$.newConnector$1(JettyUtils.scala:303)
+	at org.apache.spark.ui.JettyUtils$.httpConnect$1(JettyUtils.scala:334)
+	at org.apache.spark.ui.JettyUtils$.$anonfun$startJettyServer$5(JettyUtils.scala:337)
+	at org.apache.spark.ui.JettyUtils$.$anonfun$startJettyServer$5$adapted(JettyUtils.scala:337)
+	at org.apache.spark.util.Utils$.$anonfun$startServiceOnPort$2(Utils.scala:2383)
+	at scala.collection.immutable.Range.foreach$mVc$sp(Range.scala:190)
+	at org.apache.spark.util.Utils$.startServiceOnPort(Utils.scala:2375)
+	at org.apache.spark.ui.JettyUtils$.startJettyServer(JettyUtils.scala:338)
+	at org.apache.spark.ui.WebUI.bind(WebUI.scala:147)
+	at org.apache.spark.SparkContext.$anonfun$new$11(SparkContext.scala:488)
+	at org.apache.spark.SparkContext.$anonfun$new$11$adapted(SparkContext.scala:488)
+	at scala.Option.foreach(Option.scala:437)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:488)
+	at org.apache.spark.SparkContext$.getOrCreate(SparkContext.scala:2690)
+	at org.apache.spark.sql.SparkSession$Builder.$anonfun$getOrCreate$2(SparkSession.scala:949)
+	at scala.Option.getOrElse(Option.scala:201)
+	at org.apache.spark.sql.SparkSession$Builder.getOrCreate(SparkSession.scala:943)
+	at Utilities.SparkUtilities$.getOrCreateSpark(SparkUtilities.scala:21)
+	at TaskOnStockDataAnalysis$.delayedEndpoint$TaskOnStockDataAnalysis$1(TaskOnStockDataAnalysis.scala:5)
+	at TaskOnStockDataAnalysis$delayedInit$body.apply(TaskOnStockDataAnalysis.scala:3)
+	at scala.Function0.apply$mcV$sp(Function0.scala:39)
+	at scala.Function0.apply$mcV$sp$(Function0.scala:39)
+	at scala.runtime.AbstractFunction0.apply$mcV$sp(AbstractFunction0.scala:17)
+	at scala.App.$anonfun$main$1(App.scala:76)
+	at scala.App.$anonfun$main$1$adapted(App.scala:76)
+	at scala.collection.IterableOnceOps.foreach(IterableOnce.scala:563)
+	at scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:561)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:926)
+	at scala.App.main(App.scala:76)
+	at scala.App.main$(App.scala:74)
+	at TaskOnStockDataAnalysis$.main(TaskOnStockDataAnalysis.scala:3)
+	at TaskOnStockDataAnalysis.main(TaskOnStockDataAnalysis.scala)
+Caused by: java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:461)
+	at sun.nio.ch.Net.bind(Net.java:453)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:222)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:85)
+	at org.sparkproject.jetty.server.ServerConnector.openAcceptChannel(ServerConnector.java:344)
+	... 36 more
+22/08/30 19:05:02 WARN util.Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+22/08/30 19:05:21 WARN executor.ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped
+22/08/30 19:38:58 WARN executor.ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped
+22/08/30 19:44:41 WARN executor.ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped
+22/08/30 19:45:32 WARN util.Instrumentation: [12271bca] regParam is zero, which might cause numerical instability and overfitting.
+22/08/30 19:45:34 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+22/08/30 19:45:34 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.ForeignLinkerBLAS
+22/08/30 19:45:35 WARN netlib.InstanceBuilder$NativeLAPACK: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
+22/08/30 19:45:35 WARN util.Instrumentation: [12271bca] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
+22/08/30 20:46:53 WARN executor.ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped
+22/08/30 20:47:46 WARN util.Instrumentation: [96b4803f] regParam is zero, which might cause numerical instability and overfitting.
+22/08/30 20:47:47 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+22/08/30 20:47:47 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.ForeignLinkerBLAS
+22/08/30 20:47:48 WARN netlib.InstanceBuilder$NativeLAPACK: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
+22/08/30 20:47:48 WARN util.Instrumentation: [96b4803f] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
+22/08/30 20:49:33 WARN executor.ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped

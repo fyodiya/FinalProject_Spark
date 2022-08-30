@@ -42,14 +42,15 @@ object TaskOnStockDataAnalysis extends App {
 
 
   //TASK: Save the results to the file as Parquet (CSV and SQL formats are optional)!
-  //TODO as a method
+
   dfWithAvgReturn.write
     .mode("overwrite")
     .parquet("src/scala/resources/parquet/average_return.parquet")
 
-  dfWithAvgReturn.write.format("csv")
+  dfWithAvgReturn.write
+    .format("csv")
     .mode("overwrite")
-    .option("path", "src/resources/csv/average_returns.csv")
+    .option("path", "src/scala/resources/csv/average_returns.csv")
     .save()
 
 
