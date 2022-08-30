@@ -1,9 +1,10 @@
 import Utilities.SparkUtilities
-import org.apache.spark.ml.{Pipeline}
+import org.apache.spark.ml.Pipeline
 import org.apache.spark.ml.feature.{OneHotEncoder, RFormula, StringIndexer, VectorAssembler}
 import org.apache.spark.ml.evaluation.RegressionEvaluator
 import org.apache.spark.ml.regression.LinearRegression
 import org.apache.spark.ml.tuning.{CrossValidator, ParamGridBuilder}
+import org.apache.spark.mllib.evaluation.RegressionMetrics
 import org.apache.spark.sql.functions.{expr, round}
 
 object PredictionModel extends App {
@@ -83,5 +84,15 @@ object PredictionModel extends App {
   val predictionLR = modelLR.transform(dfForProcessing)
 
   predictionLR.show()
+
+  val out = modelLR.transform(dfForProcessing)
+    .select("prediction", "close")
+    .rdd.map(x => (x(0).asInstanceOf[Double], x(1).asInstanceOf[Double]))
+  val metrics = new RegressionMetrics(out)
+  println(s"MSE = ${metrics.meanSquaredError}")
+  println(s"RMSE = ${metrics.rootMeanSquaredError}")
+  println(s"R-squared = ${metrics.r2}")
+  println(s"MAE = ${metrics.meanAbsoluteError}")
+  println(s"Explained variance = ${metrics.explainedVariance}")
 
 }
