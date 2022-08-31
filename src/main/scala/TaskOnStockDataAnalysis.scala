@@ -89,7 +89,7 @@ println("************************************ STOCKS RANKED BY THEIR TRADING FRE
     .withColumn("annualizedVolatility", annualizedStDev)
   dfVolatility.show()
 
-  println(s"************************************ THE MOST VOLATILE STOCK WAS: ************************************")
+  println("************************************ THE MOST VOLATILE STOCK WAS: ************************************")
       dfVolatility
         .select("ticker", "annualizedVolatility")
         .orderBy(desc("annualizedVolatility"))

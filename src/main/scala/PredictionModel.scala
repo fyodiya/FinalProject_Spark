@@ -47,7 +47,7 @@ object PredictionModel extends App {
   val Array(train, test) = preparedDF.randomSplit(Array(0.7, 0.3))
 
   val va = new VectorAssembler()
-    .setInputCols(Array("dateInd", "open", "close", "high", "low", "dailyReturn"))
+    .setInputCols(Array("dateInd", "open", "close", "high", "low", "dailyReturn")) //TODO check the correlation between these datasets/columns
     .setOutputCol("features")
 
   val linReg = new LinearRegression()
@@ -68,7 +68,7 @@ object PredictionModel extends App {
     .build()
 
   val pipeline = new Pipeline()
-    .setStages(Array(va, linReg))
+    .setStages(Array(va, linReg)) //TODO put inside (stages) the datasets that correlate
 
   val evaluator = new RegressionEvaluator()
     .setPredictionCol("prediction")
@@ -94,5 +94,8 @@ object PredictionModel extends App {
   println(s"R-squared = ${metrics.r2}")
   println(s"MAE = ${metrics.meanAbsoluteError}")
   println(s"Explained variance = ${metrics.explainedVariance}")
+
+  //TODO save the result
+  //TODO save the results
 
 }
