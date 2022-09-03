@@ -1,3 +1,4 @@
+import Utilities.Utilities.{saveDFtoCSV, saveDFtoParquet}
 import org.apache.spark.sql.functions.{avg, col, desc, expr, lit, round, sqrt, stddev, sum, to_date}
 
 object TaskOnStockDataAnalysis extends App {
@@ -43,15 +44,9 @@ println("************************************ AVERAGE RETURNS ******************
 
   //TASK: Save the results to the file as Parquet (CSV and SQL formats are optional)!
 
-  dfWithAvgReturn.write
-    .mode("overwrite")
-    .parquet("src/scala/resources/parquet/average_return.parquet")
+  saveDFtoParquet(dfWithAvgReturn, "src/scala/resources/parquet/average_return.parquet")
 
-  dfWithAvgReturn.write
-    .format("csv")
-    .mode("overwrite")
-    .option("path", "src/scala/resources/csv/average_returns.csv")
-    .save()
+  saveDFtoCSV(dfWithAvgReturn, "src/scala/resources/csv/average_returns.csv")
 
 
   //TASK: Find which stock was traded most frequently

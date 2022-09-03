@@ -2026,3 +2026,9 @@ Caused by: java.net.BindException: Address already in use: bind
 22/08/30 20:47:48 WARN netlib.InstanceBuilder$NativeLAPACK: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
 22/08/30 20:47:48 WARN util.Instrumentation: [96b4803f] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
 22/08/30 20:49:33 WARN executor.ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped
+22/08/30 23:05:28 WARN util.Instrumentation: [f3317b01] regParam is zero, which might cause numerical instability and overfitting.
+22/08/30 23:05:29 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+22/08/30 23:05:29 WARN netlib.InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.ForeignLinkerBLAS
+22/08/30 23:05:29 WARN netlib.InstanceBuilder$NativeLAPACK: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
+22/08/30 23:05:29 WARN util.Instrumentation: [f3317b01] Cholesky solver failed due to singular covariance matrix. Retrying with Quasi-Newton solver.
+22/08/30 23:05:36 WARN executor.ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped

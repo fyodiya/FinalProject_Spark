@@ -96,6 +96,5 @@ object PredictionModel extends App {
   println(s"Explained variance = ${metrics.explainedVariance}")
 
   //TODO save the result
-  //TODO save the results
 
 }
