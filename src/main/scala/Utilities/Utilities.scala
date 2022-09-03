@@ -2,8 +2,6 @@ package Utilities
 
 import org.apache.spark.sql.DataFrame
 
-import java.io.FileWriter
-
 object Utilities {
 
   /**
@@ -15,6 +13,7 @@ object Utilities {
       df.write
       .mode("overwrite")
       .parquet("src/scala/resources/parquet/average_return.parquet")
+    println("Saved the dataframe in a Parquet file!")
   }
 
   /**
@@ -28,6 +27,7 @@ object Utilities {
       .mode("overwrite")
       .option("path", "src/scala/resources/csv/average_returns.csv")
       .save()
+    println("Saved the dataframe in a CSV file!")
   }
 
 

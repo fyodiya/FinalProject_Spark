@@ -21,7 +21,7 @@ object SparkUtilities {
     val sparkSession = SparkSession.builder().appName(appName).master(master).getOrCreate()
     sparkSession.conf.set("spark.sql.shuffle.partitions", partitionCount)
     if (verbose)
-      println(s"Session started on Spark version ${sparkSession.version} with $partitionCount partitions.")
+      println(s"Session started on Spark version ${sparkSession.version} with $partitionCount partition(s).")
     sparkSession
   }
 
